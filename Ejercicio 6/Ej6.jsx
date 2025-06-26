@@ -1,6 +1,7 @@
 const { useState } = React;
 
 function App() {
+  //estados
   const [peso, setPeso] = useState("");
   const [altura, setAltura] = useState("");
   const [imc, setImc] = useState(null);

@@ -1,0 +1,25 @@
+.resultado {
+  font-size: 1.2rem;
+  margin-top: 1em;
+  padding: 1em;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.amarillo {
+    background-color: rgb(204, 204, 204);
+  color: yellow;
+}
+
+.verde {
+  color:green;
+}
+
+.naranja {
+  color: orange;
+}
+
+.rojo {
+ 
+  color:red;
+}
