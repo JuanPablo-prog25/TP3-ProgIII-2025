@@ -13,8 +13,8 @@ function App() {
     const p = parseFloat(peso);
     const a = parseFloat(altura);
 
-    if ( a <= 0 && p<=0) {
-      setMensaje("Valores inválidos.");
+    if ( a <= 0||p<=0) {
+      alert("Ingrese valores correctos");
       setClaseColor("");
       setImc(null);
       return;
