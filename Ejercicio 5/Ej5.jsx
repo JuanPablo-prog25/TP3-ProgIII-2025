@@ -14,10 +14,6 @@ function App(){
         const n1= parseFloat(num1);
         const n2=parseFloat(num2);
 
-        if(operacion==="dividir"){
-            setResultado("Operacion invalida");
-            return;
-        }
         let result;
 
         //switch para decidir la operacion
@@ -31,6 +27,9 @@ function App(){
              case "multiplicar":
                     result=n1*n2;
                     break;
+            case "dividir":
+                result=n1/n2;
+                break;
                 default:
                     result="Operacion invalida";
         }
@@ -73,8 +72,8 @@ function App(){
                 </select>
             </label>
             <br />
-            <button type="submit" disabled={operacion==="dividir"}> 
-                {operacion==="dividir"?"Boton deshabilitado":"Calcular"}
+            <button type="submit" disabled={operacion==="dividir" && parseFloat(num2)===0}> 
+                {operacion==="dividir"&&parseFloat(num2)===0?"Boton deshabilitado":"Calcular"}
             </button>
         </form>
         <div>{resultado}</div>
