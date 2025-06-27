@@ -2,17 +2,24 @@ const formulario = document.getElementById("formulario");
 const operacion = document.getElementById("operacion");
 const calcular = document.getElementById("calcular");
 const resultado = document.getElementById("resultado");
+const num2 = formulario.num2;
 
-// Deshabilitar el botón si se selecciona división
-operacion.addEventListener("change", () => {
+// Funcion para deshabilitar el boton en caso de dividir por 0
+function actualizarBoton() {
   const esDivision = operacion.value === "dividir";
-  calcular.disabled = esDivision;
-  calcular.textContent = esDivision ? "Boton deshabilitado" : "Calcular";
-});
+  const valorNum2 = parseFloat(num2.value);
+  const esCero = valorNum2 === 0;
 
-// Evento submit del formulario
+  calcular.disabled = esDivision && esCero;
+  calcular.textContent = esDivision && esCero? "Boton deshabilitado": "Calcular";
+}
+//cambiar el estado  del boton
+operacion.addEventListener("change", actualizarBoton);
+num2.addEventListener("input", actualizarBoton);
+
+//envia el formulario
 formulario.addEventListener("submit", (e) => {
-  e.preventDefault(); // Evitar recarga
+  e.preventDefault(); 
 
   const numero1 = parseFloat(formulario.num1.value);
   const numero2 = parseFloat(formulario.num2.value);
@@ -27,6 +34,9 @@ formulario.addEventListener("submit", (e) => {
       break;
     case "multiplicar":
       result = numero1 * numero2;
+      break;
+    case "dividir":
+      result = numero1 / numero2;
       break;
     default:
       result = "Operación no disponible.";
