@@ -21,7 +21,7 @@ function App() {
       return;
     }
 
-    const valorIMC = parseFloat((p / (a * a))).toFixed(1);
+   const valorIMC = parseFloat((p / (a * a)).toFixed(1));
     setImc(valorIMC);
 
     if (valorIMC < 18.5) {
